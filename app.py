@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
@@ -7,10 +7,15 @@ app = Flask(__name__)
 
 @app.route("/")
 def homepage():
-    return "Iniciando a criação do site"
+    return render_template("homepage.html")
+
+@app.route("/contatos")
+def contatos():
+    return render_template("contatos.html")
 
 
 
 
 # Colocando o site no ar
-app.run()
+if __name__ == "__main__":
+    app.run(debug=True)
